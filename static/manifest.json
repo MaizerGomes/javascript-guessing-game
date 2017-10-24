@@ -1,9 +1,9 @@
 {
-  "short_name": "JS Game",
-  "name": "JavaScript Guessing Game",
+  "short_name": "Multipla escolha",
+  "name": "Jogo de Multipla escolha",
   "background_color": "#66BB6A",
   "theme_color": "#000000",
-  "description": "You know there are too many JS libraries when there is a game for it.",
+  "description": "Jogo de multipla escolha sobre cultura geral.",
   "icons": [
     {
       "src": "/static/app/app_icon_96.png",

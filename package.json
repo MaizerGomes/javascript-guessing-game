@@ -1,8 +1,8 @@
 {
-  "name": "javascript-guessing-game",
+  "name": "jogo-multipla-escolha",
   "version": "1.0.0",
-  "description": "You don't know JavaScript",
-  "author": "Sami Suo-Heikki <samiheikki@vaadin.com>",
+  "description": "Jogo sobre cultura geral",
+  "author": "Maizer Gomes <maizer.gomes@ekutivasolutions.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

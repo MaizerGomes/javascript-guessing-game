@@ -2,29 +2,22 @@
   <div id="app">
     <progress-bar></progress-bar>
     <sound-toggle></sound-toggle>
-    <login-view v-on:log-in="logIn" v-on:log-out="logOut"></login-view>
-    <router-view v-on:save-score="saveScore"></router-view>
-    <credits class="credits" v-if="routePath === '/'"></credits>
+    <login-view @log-in="logIn" @log-out="logOut"></login-view>
+    <router-view @save-score="saveScore"></router-view>
+    <credits class="credits"></credits>
   </div>
 </template>
 
 <script>
 import * as firebase from 'firebase'
 import 'firebase/auth'
+import { firebaseConfig } from '../config/firebaseconf'
 import { mapGetters, mapActions } from 'vuex'
 
 import ProgressBar from './components/ProgressBar'
 import Credits from './components/Credits'
 import SoundToggle from './components/SoundToggle'
 import LoginView from './components/LoginView'
-
-const firebaseConfig = {
-  apiKey: 'AIzaSyDzKhNG-bafYPDTbAFFGqSscGJ7a-rdB9M',
-  authDomain: 'javascript-game.firebaseapp.com',
-  databaseURL: 'https://javascript-game.firebaseio.com',
-  storageBucket: 'javascript-game.appspot.com',
-  messagingSenderId: '853137885896'
-}
 
 export default {
   components: {
@@ -35,6 +28,7 @@ export default {
   },
   created: function () {
     this.firebase()
+    this.setMenus()
 
     if (this.routePath === '/ranking') {
       this.getHighScores()
@@ -43,6 +37,7 @@ export default {
   computed: {
     ...mapGetters([
       'amount',
+      'menus',
       'answerCount',
       'startTime',
       'endTime',
@@ -61,11 +56,12 @@ export default {
   methods: {
     ...mapActions([
       'setUser',
+      'setMenus',
       'setHighScores',
       'setFirebaseFeedback'
     ]),
     logIn: function () {
-      firebase.auth().signInWithRedirect(new firebase.auth.GithubAuthProvider())
+      firebase.auth().signInWithRedirect(new firebase.auth.FacebookAuthProvider())
     },
     logOut: function () {
       firebase.auth().signOut().then(() => {

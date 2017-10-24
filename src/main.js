@@ -11,6 +11,7 @@ import store from './store'
 import App from './App'
 import Game from './components/Game'
 import Ranking from './components/Ranking'
+import Menu from './components/Menu'
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,19 @@ const routes = [
     component: App,
     children: [
       {
-        path: '',
+        path: '/',
+        component: Menu
+      },
+      {
+        path: 'js',
+        component: Game
+      },
+      {
+        path: 'flags',
+        component: Game
+      },
+      {
+        path: 'presidents',
         component: Game
       },
       {

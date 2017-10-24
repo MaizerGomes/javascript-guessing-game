@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <h1 v-bind:class="{ 'long-insult': isLongInsult }">{{insult}}</h1>
+    <h1 :class="{ 'long-insult': isLongInsult }">{{insult}}</h1>
     <h2>{{answerCount}} / {{amount}}</h2>
-    <button class="ripple-button button" v-on:click="restartGame">
+    <button class="ripple-button button" @click="restartGame">
       Restart
     </button>
     <div class="custom-tweet-button">
@@ -27,12 +27,12 @@
       </h3>
     </router-link>
     <div class="learning-suggestion" v-if="answerCount !== amount">
-      <a v-bind:href="currentLogo.url" target="_blank">
+      <a :href="currentLogo.url" target="_blank">
         <js-logo :size="55"></js-logo>
       </a>
       <p>
-        I am 
-        <a v-bind:href="currentLogo.url" target="_blank"><strong>{{currentLogo.name}}!</strong></a> 
+        I am
+        <a :href="currentLogo.url" target="_blank"><strong>{{currentLogo.name}}!</strong></a>
         Click me to learn more.
       </p>
     </div>

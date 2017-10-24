@@ -1,7 +1,7 @@
 <template>
   <div>
     <js-logo v-if="!gameFinished"></js-logo>
-    <ui-options v-if="!gameFinished" v-on:answer="answer"></ui-options>
+    <ui-options v-if="!gameFinished" @answer="answer"></ui-options>
     <result-page v-if="gameFinished"></result-page>
   </div>
 </template>

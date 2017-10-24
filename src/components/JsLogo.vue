@@ -2,10 +2,10 @@
   <div class="container">
     <transition name="fade">
       <img class="logo"
-        v-bind:src="logoUrl"
+        :src="logoUrl"
         v-if="show"
-        v-bind:style="{ height: size + 'px', width: size + 'px' }"
-        v-bind:alt="altContext">
+        :style="{ height: size + 'px', width: size + 'px' }"
+        :alt="altContext">
     </transition>
   </div>
 </template>
