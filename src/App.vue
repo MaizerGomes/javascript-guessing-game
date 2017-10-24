@@ -14,10 +14,10 @@ import 'firebase/auth'
 import { firebaseConfig } from '../config/firebaseconf'
 import { mapGetters, mapActions } from 'vuex'
 
-import ProgressBar from './components/ProgressBar'
-import Credits from './components/Credits'
-import SoundToggle from './components/SoundToggle'
-import LoginView from './components/LoginView'
+import ProgressBar from '@/components/Utils/ProgressBar'
+import Credits from '@/components/Utils/Credits'
+import SoundToggle from '@/components/Utils/SoundToggle'
+import LoginView from '@/components/Auth/LoginView'
 
 export default {
   components: {

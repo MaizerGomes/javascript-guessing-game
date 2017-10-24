@@ -8,10 +8,10 @@ import { sync } from 'vuex-router-sync'
 
 import store from './store'
 
-import App from './App'
-import Game from './components/Game'
-import Ranking from './components/Ranking'
-import Menu from './components/Menu'
+import App from '@/App.vue'
+import Game from '@/components/Game/Game.vue'
+import Ranking from '@/components/Game/Ranking.vue'
+import Menu from '@/components/Menu/Menu.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +21,7 @@ const routes = [
     component: App,
     children: [
       {
-        path: '/',
+        path: '',
         component: Menu
       },
       {
@@ -37,7 +37,7 @@ const routes = [
         component: Game
       },
       {
-        path: 'ranking',
+        path: 'ranking/:game',
         component: Ranking
       }
     ]

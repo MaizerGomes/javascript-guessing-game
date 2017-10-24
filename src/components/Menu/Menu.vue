@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <js-logo></js-logo>
     <div class="flex-container">
       <menu-button class="button" v-for="menu in menus" :text="menu.name" :url="menu.url" :logo="menu.logo"
                    @button-click="choose"></menu-button>
@@ -29,8 +30,6 @@
     methods: {
       choose: function (url) {
         this.$router.push(url)
-//        console.log(this.$router.push(''))
-//        this.$emit('chosen', id)
       }
     }
   }

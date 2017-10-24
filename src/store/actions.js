@@ -1,4 +1,4 @@
-import * as types from './mutation-types'
+// import * as types from './mutation-types'
 
 // export const logIn = ({ commit }) => {
 //   commit(types.LOG_IN)
