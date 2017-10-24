@@ -6582,6 +6582,14 @@ vue-loader@^11.3.4:
     vue-style-loader "^2.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
+vue-notifyjs@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vue-notifyjs/-/vue-notifyjs-0.2.0.tgz#162d353b2593641576fcb902a08266d0c23f9879"
+
+vue-online@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/vue-online/-/vue-online-1.1.9.tgz#0a3b0992881e47c3574f0ca3a7f99901ed109281"
+
 vue-router@^2.3.1:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.5.2.tgz#870db3b63ead0aab4cd0bac63a7b81341c593f56"

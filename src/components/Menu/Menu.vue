@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <js-logo></js-logo>
+    <img v-if="show" :src="logo" width="200px" height="200px"/>
     <div class="flex-container">
       <menu-button class="button" v-for="menu in menus" :text="menu.name" :url="menu.url" :logo="menu.logo"
-                   @button-click="choose"></menu-button>
+                   @button-click="choose" @button-hovered="setLogo" @button-left="setDefaultLogo"></menu-button>
     </div>
   </div>
 
@@ -19,7 +19,9 @@
     },
     data () {
       return {
-        show: true
+        show: true,
+        logo: '',
+        prod: process.env.NODE_ENV === 'production'
       }
     },
     computed: {
@@ -27,9 +29,22 @@
         menus: 'menus'
       })
     },
+    created: function () {
+      this.setDefaultLogo()
+    },
     methods: {
       choose: function (url) {
         this.$router.push(url)
+      },
+      setDefaultLogo: function () {
+        this.setLogo('app_icon')
+      },
+      setLogo: function (logo) {
+        if (logo) {
+          this.logo = '../static/logos/' + logo.toLowerCase() + '.png'
+        } else {
+          this.setDefaultLogo()
+        }
       }
     }
   }

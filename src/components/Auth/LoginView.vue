@@ -16,13 +16,13 @@
         <div class="dropdown-divider">
         </div>
         <router-link to="/ranking" class="dropdown-item" v-if="routePath === '/'" v-on:click.native="closeDropdown">
-          High scores
+          Pontuações
         </router-link>
-        <router-link to="/" class="dropdown-item" v-else v-on:click.native="closeDropdown">Play the game</router-link>
-        <a href="#" class="dropdown-item" v-on:click="logOut">Sign out</a>
+        <router-link to="/" class="dropdown-item" v-else v-on:click.native="closeDropdown">Ver outros jogos</router-link>
+        <a href="#" class="dropdown-item" v-on:click="logOut">Sair</a>
         <div class="dropdown-divider">
         </div>
-        <a href="https://github.com/samiheikki/javascript-guessing-game" class="dropdown-item">Source code</a>
+        <a href="https://github.com/MaizerGomes/javascript-guessing-game" class="dropdown-item">Código Fonte</a>
       </div>
     </div>
   </div>
@@ -81,19 +81,19 @@
   .login-root {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 5px;
   }
 
   button {
-    width: 140px;
-    background-color: #000;
-    color: #66BB6A;
+    width: 80px;
+    background-color: #1b3b79;
+    color: #ffffff;
     text-align: center;
     text-transform: uppercase;
     font-size: 10px;
-    border: 1px solid #66BB6A;
+    border: 1px solid #ffffff;
     border-radius: 8px;
-    padding: 15px;
+    padding: 10px;
     outline: none;
     cursor: pointer;
     margin: 8px;

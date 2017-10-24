@@ -1,5 +1,5 @@
 <template>
-  <button ripple class="ripple-button" @mousedown="onDown" @click="onClick" @mouseenter="setLogo">
+  <button ripple class="ripple-button" @mousedown="onDown" @click="onClick" @mouseenter="setLogo" @mouseout="clearLogo">
     <div class="ripple--container">
     </div>
     {{text}}
@@ -67,8 +67,11 @@
       onClick: function () {
         this.$emit('button-click', this.url)
       },
-      setLogo: () => {
-        return
+      setLogo: function () {
+        this.$emit('button-hovered', this.logo)
+      },
+      clearLogo: function () {
+        this.$emit('button-hovered')
       }
     }
   }

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <progress-bar></progress-bar>
+    <notifications></notifications>
     <sound-toggle></sound-toggle>
     <login-view @log-in="logIn" @log-out="logOut"></login-view>
     <router-view @save-score="saveScore"></router-view>
@@ -13,6 +14,8 @@ import * as firebase from 'firebase'
 import 'firebase/auth'
 import { firebaseConfig } from '../config/firebaseconf'
 import { mapGetters, mapActions } from 'vuex'
+
+import 'vue-notifyjs/themes/material.css'
 
 import ProgressBar from '@/components/Utils/ProgressBar'
 import Credits from '@/components/Utils/Credits'

@@ -15,7 +15,8 @@ const state = {
   startTime: new Date().getTime(),
   endTime: 0,
   highScores: [],
-  firebaseFeedback: false
+  firebaseFeedback: false,
+  activeGame: false
 }
 
 // getters
@@ -31,30 +32,38 @@ const getters = {
   startTime: state => state.startTime,
   endTime: state => state.endTime,
   highScores: state => state.highScores,
-  firebaseFeedback: state => state.firebaseFeedback
+  firebaseFeedback: state => state.firebaseFeedback,
+  activeGame: state => state.activeGame
 }
 
 // actions
 const actions = {
-  initializeLogos ({commit}, callback) {
-    api.getJSON('static/logos.json', (error, tempLogos) => {
+  initializeLogos ({commit, state}, callback) {
+    api.getJSON('static/data/' + state.activeGame + '.json', (error, tempLogos) => {
       if (typeof tempLogos === 'string') { // IE11 fix
         tempLogos = JSON.parse(tempLogos)
       }
 
       if (error) {
         // Fetch from localStorage
-        tempLogos = JSON.parse(window.localStorage.getItem('logos'))
+        tempLogos = JSON.parse(window.localStorage.getItem('logos_' + state.activeGame))
       } else {
         // Update localStorage
         // window.jsTools = JSON.parse(JSON.stringify(tempLogos)) try to get rid of this
-        window.localStorage.setItem('logos', JSON.stringify(tempLogos))
+        window.localStorage.setItem('logos_' + state.activeGame, JSON.stringify(tempLogos))
       }
 
       commit(types.SET_TEMP_LOGOS, {tempLogos})
 
       callback()
     })
+  },
+  setActiveGame ({commit}, activeGame) {
+    const callback = activeGame.callback
+
+    commit(types.SET_ACTIVE_GAME, {activeGame})
+
+    callback()
   },
   setCurrentLogo ({commit, state}, currentLogo) {
     const previousLogo = state.currentLogo
@@ -133,6 +142,9 @@ const mutations = {
   },
   [types.SET_OPTIONS] (state, {options}) {
     state.options = options
+  },
+  [types.SET_ACTIVE_GAME] (state, {activeGame}) {
+    state.activeGame = activeGame.game
   },
   [types.SET_MENUS] (state, {menus}) {
     state.menus = menus

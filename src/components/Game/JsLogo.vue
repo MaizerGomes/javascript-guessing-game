@@ -28,17 +28,18 @@ export default {
   computed: {
     ...mapGetters({
       currentLogo: 'currentLogo',
-      gameFinished: 'gameFinished'
+      gameFinished: 'gameFinished',
+      activeGame: 'activeGame'
     }),
     logoUrl: function () {
       if (!this.currentLogo.name) {
         return undefined
       }
 
-      return '../static/logos/' + (this.prod ? this.currentLogo.uuid : this.currentLogo.name.toLowerCase()) + '.png'
+      return '../static/logos/' + this.activeGame + '/' + (this.prod ? this.currentLogo.uuid : this.currentLogo.name.toLowerCase()) + '.png'
     },
     altContext: function () {
-      return this.gameFinished ? 'Learn about this JavaScript library' : 'Guess this logo'
+      return this.gameFinished ? 'Learn about this JavaScript library' : 'Adivinhe esta imagem'
     }
   },
   mounted: function () {

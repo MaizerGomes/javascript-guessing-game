@@ -6,6 +6,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { sync } from 'vuex-router-sync'
 
+import Notify from 'vue-notifyjs'
+
 import store from './store'
 
 import App from '@/App.vue'
@@ -14,6 +16,10 @@ import Ranking from '@/components/Game/Ranking.vue'
 import Menu from '@/components/Menu/Menu.vue'
 
 Vue.use(VueRouter)
+Vue.use(Notify, {
+  horizontalAlign: 'right',
+  verticalAlign: 'bottom'
+})
 
 const routes = [
   {
@@ -25,15 +31,7 @@ const routes = [
         component: Menu
       },
       {
-        path: 'js',
-        component: Game
-      },
-      {
-        path: 'flags',
-        component: Game
-      },
-      {
-        path: 'presidents',
+        path: 'play/:game',
         component: Game
       },
       {
@@ -58,3 +56,5 @@ new Vue({
 
 // hide loading
 document.querySelector('.loading-container').style.display = 'none'
+
+window.vm = Vue
